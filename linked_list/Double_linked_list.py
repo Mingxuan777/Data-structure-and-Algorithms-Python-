@@ -1,3 +1,7 @@
+# 双向列表：
+# 对于每个节点的定义，有储存数据的部分，前节点与后节点组成
+# 主要的方法有 判断是否位空，列表长度，遍历，添加，以及查找。
+
 class Node(object):
     """双向链表节点"""
     def __init__(self, item):
@@ -61,8 +65,6 @@ class DLinkList(object):
             cur.next = node
             # 将node的prev指向cur
             node.prev = cur
-
-
 
     def search(self, item):
         """查找元素是否存在"""
