@@ -1,14 +1,14 @@
 #linked_list in python
 class Node():
     def __init__(self,data = None):
-        self.data = data
-        self.next = None
+        self.data = data # 存储数据
+        self.next = None # 存储节点
     
 class Linked_list():
     def __init__(self):
         self.head = Node()
     
-    #add data
+    # 添加数据
     def Append(self,data):
         cur = self.head
         new_node = Node(data)
@@ -17,7 +17,7 @@ class Linked_list():
         cur.data = data
         cur.next = new_node
 
-    #show data
+    # 打印数据
     def display(self):
         cur = self.head
         item = []
@@ -26,7 +26,7 @@ class Linked_list():
             cur = cur.next
         print(item)
     
-    #show length
+    # 返回长度
     def length(self):
         cur = self.head
         total = 0
@@ -35,7 +35,7 @@ class Linked_list():
             cur = cur.next
         return total
     
-    #delete by index
+    # 按位置删除
     def remove(self,index):
         cur = self.head
         pre = self.head
@@ -55,7 +55,7 @@ class Linked_list():
                     cur = cur.next
         return
     
-    #delete by number
+    # 按元素删除
     def removedata(self,data):
         cur = self.head
         pre = self.head
@@ -69,7 +69,7 @@ class Linked_list():
                 cur = cur.next
         print('It is a empty list')
     
-    #search by number
+    # 搜寻元素
     def find(self,data):
         cur = self.head
         while cur.next != None:
@@ -80,7 +80,7 @@ class Linked_list():
                 cur = cur.next
         print('list is empty!')
     
-    #insert by index
+    # 搜寻，按元素位置
     def insert(self,index,data):
         new_node = Node(data)
         cur = self.head
@@ -102,7 +102,7 @@ class Linked_list():
                     cur = cur.next
         self.Append(data)
     
-    #show index of given data
+    # 返回引索
     def getindex(self,data):
         cur = self.head
         num = 0
