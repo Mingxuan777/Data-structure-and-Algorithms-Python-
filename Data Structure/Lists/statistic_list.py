@@ -1,3 +1,5 @@
+# 相对于顺序结构的列表而言，节省了数据移位、内存碎片的开支。
+
 class Node:
     def __init__(self, next, val=None):
         self.val = val
@@ -6,8 +8,8 @@ class Node:
 class SLinkList:
   # 分配线性表长度、定义线性表
   def __init__(self, size=7): # 线性表长度
-      self.size = size
-      self.link = [Node((i + 1) % self.size) for i in range(self.size)]
+      self.size = size # 线性表长度被定为为7。这个值是固定的
+      self.link = [Node((i + 1) % self.size) for i in range(self.size)] # 列表推导式。
 
   # 线性表清空
   def clearSLL(self):
