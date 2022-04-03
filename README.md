@@ -1,2 +1,2 @@
-# data-structure-in-python
-includes binary tree, linked list,queue
+# Data structure and algorithms using Python.
+I will keep updating this repository. 
