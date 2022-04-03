@@ -1,10 +1,17 @@
-# 冒泡排序
+# 选择排序
+# 寻找后放置
 
-def bubbleSprt(arr):
-    n = len(arr)
+A = [64, 25, 12, 22, 11]
 
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+for i in range(len(A)):
 
+    min_idx = i
+    for j in range(i + 1, len(A)):
+        if A[min_idx] > A[j]:
+            min_idx = j
+
+    A[i], A[min_idx] = A[min_idx], A[i]
+
+print("排序后的数组：")
+for i in range(len(A)):
+    print("%d" % A[i])
