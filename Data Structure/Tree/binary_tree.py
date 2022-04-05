@@ -1,10 +1,12 @@
 #binary_tree in python
+
+#定义单个的树节点
 class node():
     def __init__(self,data = None):
-        self.data = data
-        self.right_child = None
-        self.left_child = None
-        self.parent = None
+        self.data = data # 存储数据
+        self.right_child = None # 右侧子节点
+        self.left_child = None # 左侧子节点
+        self.parent = None # 母节点
 
 class binary_tree():
     def __init__(self):
@@ -13,24 +15,24 @@ class binary_tree():
     #add numbers to binary_tree
     def append(self,data):
         if self.root == None:
-            self.root = node(data)
+            self.root = node(data) # 如果树是空的，那么这是第一个节点
         else:
             self._insert(self.root,data)
 
     def _insert(self,cur_node,data):
-        if cur_node.data > data:
+        if cur_node.data > data: # 当前节点的数字比添加的数字大
             if cur_node.left_child == None:
-                cur_node.left_child = node(data)
-                cur_node.left_child.parent = cur_node
+                cur_node.left_child = node(data) # 添加数字
+                cur_node.left_child.parent = cur_node # 链接母节点
             else:
-                self._insert(cur_node.left_child,data)
+                self._insert(cur_node.left_child,data) # 遍历左侧分支，直到找到空节点
         
-        elif cur_node.data < data:
+        elif cur_node.data < data: # 当前节点的数字比添加的数字小
             if cur_node.right_child == None:
-                cur_node.right_child = node(data)
-                cur_node.right_child.parent = cur_node
+                cur_node.right_child = node(data) # 添加数字
+                cur_node.right_child.parent = cur_node # 链接母节点
             else:
-                self._insert(cur_node.right_child,data)
+                self._insert(cur_node.right_child,data) # 遍历右侧分支，直到找到空节点
         
         else:
             print('data is already in the list!')
@@ -67,7 +69,7 @@ class binary_tree():
             self._lrr_print_tree(cur_node.right_child)
             print(cur_node.data)
 
-            
+
     
     #find number in binary-tree
     def find(self,data):
@@ -108,7 +110,7 @@ class binary_tree():
             return
         
         else:
-            self._delet(self.root,data)
+            self._delet(self.root, data)
     
-    def _delet(self,cur_node,data):
+    def _delet(self, cur_node, data):
         pass
