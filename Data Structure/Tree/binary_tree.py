@@ -14,12 +14,18 @@ class binary_tree():
     
     #add numbers to binary_tree
     def append(self,data):
+        '''
+        向树中添加新数字
+        '''
         if self.root == None:
             self.root = node(data) # 如果树是空的，那么这是第一个节点
         else:
             self._insert(self.root,data)
 
     def _insert(self,cur_node,data):
+        '''
+        向树中添加新数字
+        '''
         if cur_node.data > data: # 当前节点的数字比添加的数字大
             if cur_node.left_child == None:
                 cur_node.left_child = node(data) # 添加数字
@@ -36,8 +42,8 @@ class binary_tree():
         
         else:
             print('data is already in the list!')
-        
-    #print the tree
+
+    # print the tree
     def print_tree(self):
         if self.root == None:
             print('no numbers in the tree')
@@ -46,25 +52,24 @@ class binary_tree():
             self._print_tree(self.root)
             self._rlr_print_tree(self.root)
             self._lrr_print_tree(self.root)
-    
-    #print binary_tree(left-root-right)
-    def _print_tree(self,cur_node):
+
+    # print binary_tree(left-root-right)
+    def _print_tree(self, cur_node):
         if cur_node != None:
             self._print_tree(cur_node.left_child)
             print(cur_node.data)
             self._print_tree(cur_node.right_child)
 
-    #print binary_tree(root,left,right)
-    def _rlr_print_tree(self,cur_node):
+    # print binary_tree(root,left,right)
+    def _rlr_print_tree(self, cur_node):
         if cur_node != None:
             print(cur_node.data)
             self._rlr_print_tree(cur_node.left_child)
             self._rlr_print_tree(cur_node.right_child)
 
-    
-    #print binary tree(left-right-root)
-    def _lrr_print_tree(self,cur_node):
-        if cur_node != None:
+    # print binary tree (left-right-root)
+    def _lrr_print_tree(self, cur_node):
+        if cur_node != None: # 判断当前节点是否为空，如果为空，遍历
             self._lrr_print_tree(cur_node.left_child)
             self._lrr_print_tree(cur_node.right_child)
             print(cur_node.data)
