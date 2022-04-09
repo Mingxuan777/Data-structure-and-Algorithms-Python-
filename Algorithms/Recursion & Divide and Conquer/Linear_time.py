@@ -1,5 +1,6 @@
 import time
 import random
+from random import sample
 
 def look_for(L, left, right):
     if (left >= right):
@@ -31,7 +32,7 @@ def look_for(L, left, right):
         return look_for(L, i + 1, right)
 
 def main():
-    from random import sample
+
     result = sample([x for x in range(-1000, 1000)], 11)
     print(result)
     start = time.time()
