@@ -3,11 +3,18 @@
 
 from collections import deque
 
+# 定义图
+
 graph = {}
 graph["you"] = {'alice', 'bob', 'claire'}
 graph['bob'] = ["anuj", "peggy"]
 graph['alice'] = ["peggy"]
 graph['claire'] = ['thom', 'jonny']
+graph['anuj'] = ['']
+graph['peggy'] = ['']
+graph['thom'] = ['']
+graph['jonny'] = ['']
+
 
 def person_is_seller(name):
     return name[-1] == 'm'
@@ -23,7 +30,7 @@ def search(name):
                 print(person + ' is a mango seller')
                 return True
             else:
-                search_queue += graph[person]
+                search_queue += graph[person] # 添加除了'you'认识的人
                 searched.append(person)
     return False
 
