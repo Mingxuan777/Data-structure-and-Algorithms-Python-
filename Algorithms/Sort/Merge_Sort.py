@@ -1,63 +1,34 @@
-# 归并排序
+# 归并排序， 使用递归
+# 如何理解？递归先探测做分支直到最小的颗粒，之后开始排序，一步步向上。
+# 应该是运用了两次递归。依次是left/right 的搜索，另外一是排好序的元素
 
-def merge(arr, l, m, r):
-    n1 = m - l + 1
-    n2 = r - m
+def mergesort(seq): # returns sorted list
+    """归并排序"""
+    if len(seq) <= 1: # 递归终止条件
+        return seq
+    mid = int(len(seq) / 2)  # 将列表分成更小的两个列表，递归处理
+    # 分别对左右两个列表进行处理，分别返回两个排序好的列表
+    left = mergesort(seq[:mid])
+    right = mergesort(seq[mid:])
+    # 对排序好的两个列表合并，产生一个新的排序好的列表
 
-    # 创建临时数组
-    L = [0] * (n1)
-    R = [0] * (n2)
-
-    # 拷贝数据到临时数组 arrays L[] 和 R[]
-    for i in range(0, n1):
-        L[i] = arr[l + i]
-
-    for j in range(0, n2):
-        R[j] = arr[m + 1 + j]
-
-    # 归并临时数组到 arr[l..r]
-    i = 0  # 初始化第一个子数组的索引
-    j = 0  # 初始化第二个子数组的索引
-    k = l  # 初始归并子数组的索引
-
-    while i < n1 and j < n2:
-        if L[i] <= R[j]:
-            arr[k] = L[i]
+    result = []  # 新的已排序好的列表
+    i = 0  # 下标
+    j = 0
+    # 对两个列表中的元素 两两对比。
+    # 将最小的元素，放到result中，并对当前列表下标加1
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
             i += 1
         else:
-            arr[k] = R[j]
+            result.append(right[j])
             j += 1
-        k += 1
+    # 这里应该是把最后一个元素加上去了。
+    result += left[i:] # 注意i:
+    result += right[j:] # 注意是j:
+    return result
 
-    # 拷贝 L[] 的保留元素
-    while i < n1:
-        arr[k] = L[i]
-        i += 1
-        k += 1
-
-    # 拷贝 R[] 的保留元素
-    while j < n2:
-        arr[k] = R[j]
-        j += 1
-        k += 1
-
-
-def mergeSort(arr, l, r):
-    if l < r:
-        m = int((l + (r - 1)) / 2)
-
-        mergeSort(arr, l, m)
-        mergeSort(arr, m + 1, r)
-        merge(arr, l, m, r)
-
-
-arr = [12, 11, 13, 5, 6, 7]
-n = len(arr)
-print("给定的数组")
-for i in range(n):
-    print("%d" % arr[i]),
-
-mergeSort(arr, 0, n - 1)
-print("\n\n排序后的数组")
-for i in range(n):
-    print("%d" % arr[i]),
+seq = [5,3,0,2,7,6,1,4]
+result = mergesort(seq)
+print(result)

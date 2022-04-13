@@ -53,22 +53,25 @@ class binary_tree():
             self._rlr_print_tree(self.root)
             self._lrr_print_tree(self.root)
 
-    # print binary_tree(left-root-right)
+    # print binary_tree(left-root-right) 中序遍历
     def _print_tree(self, cur_node):
-        if cur_node != None:
+        '''中序遍历，递归实现'''
+        if cur_node != None: # 终止条件
             self._print_tree(cur_node.left_child)
             print(cur_node.data)
             self._print_tree(cur_node.right_child)
 
-    # print binary_tree(root,left,right)
+    # print binary_tree(root,left,right) 前序遍历
     def _rlr_print_tree(self, cur_node):
+        '''前序遍历'''
         if cur_node != None:
             print(cur_node.data)
             self._rlr_print_tree(cur_node.left_child)
             self._rlr_print_tree(cur_node.right_child)
 
-    # print binary tree (left-right-root)
+    # print binary tree (left-right-root) 后续遍历
     def _lrr_print_tree(self, cur_node):
+        '''后续遍历'''
         if cur_node != None: # 判断当前节点是否为空，如果为空，遍历
             self._lrr_print_tree(cur_node.left_child)
             self._lrr_print_tree(cur_node.right_child)
