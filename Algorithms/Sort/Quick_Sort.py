@@ -11,11 +11,11 @@ def quick_sort(lists, i, j):
     while i < j: # 当 i 与 j 还没有相遇时，
         while i < j and lists[j] >= pivot:
             j -= 1
-        lists[i] = lists[j] # 互换位置
+        lists[i] = lists[j] # 找j给i
         # J的位置被锁住了， 给J找一个合适的元素
         while i < j and lists[i] <= pivot: # 接力寻找
             i += 1
-        lists[j] = lists[i] # 互换位置
+        lists[j] = lists[i] # 找i给j
 
     lists[j] = pivot # 相遇了时候
     quick_sort(lists, low, i-1) # 哨兵左边

@@ -17,7 +17,7 @@ def mergesort(seq): # returns sorted list
     j = 0
     # 对两个列表中的元素 两两对比。
     # 将最小的元素，放到result中，并对当前列表下标加1
-    while i < len(left) and j < len(right):
+    while i < len(left) and j < len(right): # 比较大小
         if left[i] <= right[j]:
             result.append(left[i])
             i += 1
